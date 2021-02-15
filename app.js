@@ -1,5 +1,4 @@
 const nodemailer = require('nodemailer');
-//multer allows to send files
 const multer = require('multer');
 const bodyParser = require('body-parser');
 const fs = require('fs');
@@ -16,8 +15,7 @@ let body;
 let path;
 
 
-//########################################################################
-//UPLOADING FILES MIDDLEWARE
+
 //The disk storage engine gives you full control on storing files to disk.                                     
 let Storage = multer.diskStorage({
     //destination is used to determine within which folder the uploaded files should be stored.                                           
@@ -32,8 +30,8 @@ let Storage = multer.diskStorage({
 
 let upload = multer({
     storage:Storage
-}).single('image'); //image is the fieldname in index.html file (name="image")
-//###########################################################################
+}).single('image'); 
+
 
 app.get('/', (req, res) => {
     res.sendFile('/index.html');
